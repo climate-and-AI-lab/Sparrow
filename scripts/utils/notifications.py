@@ -25,7 +25,7 @@ config.add(APPRISE_CONFIG)
 apobj.add(config)
 
 
-def notify(body, title, attached=""):
+def notify(body, title, attached=DB_PATH):
     if attached != "":
         apobj.notify(
             body=body,
@@ -129,7 +129,7 @@ def sendAppriseNotifications(species, confidence, confidencepct, path,
                 .replace("$sens", sens)\
                 .replace("$flickrimage", image_url if "{" in body else "")\
                 .replace("$overlap", overlap)
-            notify(notify_body, notify_title, image_url)
+            notify(notify_body, notify_title)
             species_last_notified[comName] = int(timeim.time())
 
         APPRISE_NOTIFICATION_NEW_SPECIES_DAILY_COUNT_LIMIT = 1  # Notifies the first N per day.
@@ -176,7 +176,7 @@ def sendAppriseNotifications(species, confidence, confidencepct, path,
                         .replace("$flickrimage", image_url if "{" in body else "")\
                         .replace("$overlap", overlap)\
                         + " (first time today)"
-                    notify(notify_body, notify_title, image_url)
+                    notify(notify_body, notify_title)
                     species_last_notified[comName] = int(timeim.time())
                 con.close()
             except sqlite3.Error as e:
@@ -226,7 +226,7 @@ def sendAppriseNotifications(species, confidence, confidencepct, path,
                         .replace("$flickrimage", image_url if "{" in body else "")\
                         .replace("$overlap", overlap)\
                         + " (only seen " + str(int(numberDetections)) + " times in last 7d)"
-                    notify(notify_body, notify_title, image_url)
+                    notify(notify_body, notify_title)
                     species_last_notified[comName] = int(timeim.time())
                 con.close()
             except sqlite3.Error:
