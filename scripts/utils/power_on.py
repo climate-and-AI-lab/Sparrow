@@ -15,7 +15,7 @@ def power_on(power_key):
         GPIO.output(power_key,GPIO.HIGH)
         time.sleep(2)
         GPIO.output(power_key,GPIO.LOW)
-        time.sleep(20)
+        time.sleep(40)
         ser.flushInput()
         print('SIM7600X is ready')
 

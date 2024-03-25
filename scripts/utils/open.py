@@ -8,6 +8,7 @@ PhoneCmd = namedtuple("PhoneCmd", ["cmd", "sleep"])
 
 APN = "web.vodafone.de"
 url = f"http://api.thingspeak.com/update?api_key=HPDZ4040M5DOZAZE&field3=20"
+sim_pin = "6419"
 
 
 # Define the serial port and baud rate
@@ -30,6 +31,8 @@ if not ser.is_open:
 commands = [
     # Check if the module is responsive, expected value OK
     PhoneCmd("AT", sleep=3),
+    # Connect to network using sim 
+    PhoneCmd("AT+CPIN={sim_pin}", sleep=3),
     # close or turn off network connection in case it was left open, expected value OK
     PhoneCmd("AT+CIPSHUT", sleep=3),
     #  close GPRS context bearer in case it was left open, expected value OK
