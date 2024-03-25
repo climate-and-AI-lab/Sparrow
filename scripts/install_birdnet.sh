@@ -34,8 +34,8 @@ install_birdnet() {
   lines_to_add=(
     "#sh /home/birdnet/SIM7600X-4G-HAT-Demo/Raspberry/c/sim7600_4G_hat_init"
     "#source /home/birdnet/BirdNET-Pi/birdnet/bin/activate"
-    "python /home/birdnet/BirdNET-Pi/scripts/utils/power_on.py"
-    "python /home/birdnet/BirdNET-Pi/scripts/utils/open.py"
+    "python /home/sparrow/BirdNET-Pi/scripts/utils/power_on.py"
+    "python /home/sparrow/BirdNET-Pi/scripts/utils/open.py"
   )
 
   # Loop through the lines and add them to rc.local

@@ -132,7 +132,7 @@ def sendAppriseNotifications(species, confidence, confidencepct, path,
                 .replace("$overlap", overlap)
            
             arguments = [sciName, comName, confidence, latitude, longitude, cutoff, sens, overlap]
-            external_file_path = '/home/birdnet/BirdNET-Pi/scripts/utils/send.py'
+            external_file_path = '/home/sparrow/BirdNET-Pi/scripts/utils/send.py'
             command = ['python', external_file_path] + arguments
             subprocess.run(command, check=True)
 
@@ -185,7 +185,7 @@ def sendAppriseNotifications(species, confidence, confidencepct, path,
                         + " (first time today)"
 
                     arguments = [sciName, comName, confidence, latitude, longitude, cutoff, sens, overlap]
-                    external_file_path = '/home/birdnet/BirdNET-Pi/scripts/utils/send.py'
+                    external_file_path = '/home/sparrow/BirdNET-Pi/scripts/utils/send.py'
                     command = ['python', external_file_path] + arguments
                     subprocess.run(command, check=True)
 
@@ -241,7 +241,7 @@ def sendAppriseNotifications(species, confidence, confidencepct, path,
                         + " (only seen " + str(int(numberDetections)) + " times in last 7d)"
 
                     arguments = [sciName, comName, confidence, latitude, longitude, cutoff, sens, overlap]
-                    external_file_path = '/home/birdnet/BirdNET-Pi/scripts/utils/send.py'
+                    external_file_path = '/home/sparrow/BirdNET-Pi/scripts/utils/send.py'
                     command = ['python', external_file_path] + arguments
                     subprocess.run(command, check=True)
 
