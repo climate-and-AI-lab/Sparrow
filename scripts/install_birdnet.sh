@@ -49,6 +49,17 @@ install_birdnet() {
         echo "Line added to rc.local"
     fi
   done
+
+  # Enable UART in /boot/config.txt
+  if grep -q "^enable_uart=1" /boot/config.txt; then
+      echo "UART already enabled. No changes needed."
+  elif grep -q "^enable_uart=0" /boot/config.txt; then
+      sed -i 's/enable_uart=0/enable_uart=1/' /boot/config.txt
+      echo "UART enabled."
+  else
+      echo "enable_uart=1" >> /boot/config.txt
+      echo "UART enabled."
+  fi
 }
 
 
