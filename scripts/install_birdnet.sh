@@ -29,7 +29,28 @@ install_birdnet() {
   python3 -m venv birdnet
   source ./birdnet/bin/activate
   pip3 install -U -r $HOME/BirdNET-Pi/requirements.txt
+
+  # Define the lines to be added to rc.local
+  lines_to_add=(
+    "#sh /home/birdnet/SIM7600X-4G-HAT-Demo/Raspberry/c/sim7600_4G_hat_init"
+    "#source /home/birdnet/BirdNET-Pi/birdnet/bin/activate"
+    "python /home/birdnet/BirdNET-Pi/scripts/utils/power_on.py"
+    "python /home/birdnet/BirdNET-Pi/scripts/utils/open.py"
+  )
+
+  # Loop through the lines and add them to rc.local
+  for line in "${lines_to_add[@]}"; do
+    # Check if the line already exists in rc.local
+    if grep -Fxq "$line" /etc/rc.local; then
+        echo "Line already exists in rc.local"
+    else
+        # Add the line to rc.local
+        sudo sed -i '$i '"$line"'' /etc/rc.local
+        echo "Line added to rc.local"
+    fi
+  done
 }
+
 
 [ -d ${RECS_DIR} ] || mkdir -p ${RECS_DIR} &> /dev/null
 

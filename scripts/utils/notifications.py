@@ -5,6 +5,7 @@ import sqlite3
 from datetime import datetime
 import requests
 import time as timeim
+import subprocess
 
 userDir = os.path.expanduser('~')
 APPRISE_CONFIG = userDir + '/BirdNET-Pi/apprise.txt'
@@ -25,7 +26,7 @@ config.add(APPRISE_CONFIG)
 apobj.add(config)
 
 
-def notify(body, title, attached=DB_PATH):
+def notify(body, title, attached=""):
     if attached != "":
         apobj.notify(
             body=body,
@@ -129,7 +130,13 @@ def sendAppriseNotifications(species, confidence, confidencepct, path,
                 .replace("$sens", sens)\
                 .replace("$flickrimage", image_url if "{" in body else "")\
                 .replace("$overlap", overlap)
-            notify(notify_body, notify_title)
+           
+            arguments = [sciName, comName, confidence, latitude, longitude, cutoff, sens, overlap]
+            external_file_path = '/home/birdnet/BirdNET-Pi/scripts/utils/send.py'
+            command = ['python', external_file_path] + arguments
+            subprocess.run(command, check=True)
+
+            notify(notify_body, notify_title, image_url)
             species_last_notified[comName] = int(timeim.time())
 
         APPRISE_NOTIFICATION_NEW_SPECIES_DAILY_COUNT_LIMIT = 1  # Notifies the first N per day.
@@ -176,7 +183,13 @@ def sendAppriseNotifications(species, confidence, confidencepct, path,
                         .replace("$flickrimage", image_url if "{" in body else "")\
                         .replace("$overlap", overlap)\
                         + " (first time today)"
-                    notify(notify_body, notify_title)
+
+                    arguments = [sciName, comName, confidence, latitude, longitude, cutoff, sens, overlap]
+                    external_file_path = '/home/birdnet/BirdNET-Pi/scripts/utils/send.py'
+                    command = ['python', external_file_path] + arguments
+                    subprocess.run(command, check=True)
+
+                    notify(notify_body, notify_title, image_url)
                     species_last_notified[comName] = int(timeim.time())
                 con.close()
             except sqlite3.Error as e:
@@ -226,7 +239,13 @@ def sendAppriseNotifications(species, confidence, confidencepct, path,
                         .replace("$flickrimage", image_url if "{" in body else "")\
                         .replace("$overlap", overlap)\
                         + " (only seen " + str(int(numberDetections)) + " times in last 7d)"
-                    notify(notify_body, notify_title)
+
+                    arguments = [sciName, comName, confidence, latitude, longitude, cutoff, sens, overlap]
+                    external_file_path = '/home/birdnet/BirdNET-Pi/scripts/utils/send.py'
+                    command = ['python', external_file_path] + arguments
+                    subprocess.run(command, check=True)
+
+                    notify(notify_body, notify_title, image_url)
                     species_last_notified[comName] = int(timeim.time())
                 con.close()
             except sqlite3.Error:
