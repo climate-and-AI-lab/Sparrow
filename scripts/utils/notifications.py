@@ -133,7 +133,7 @@ def sendAppriseNotifications(species, confidence, confidencepct, path,
            
             arguments = [sciName, comName, confidence, latitude, longitude, cutoff, sens, overlap]
             external_file_path = '/home/sparrow/BirdNET-Pi/scripts/utils/send.py'
-            command = ['~/BirdNET-Pi/birdnet/bin/python /home/sparrow/BirdNET-Pi/scripts/utils/power_on.py', external_file_path] + arguments
+            command = ['/home/sparrow/BirdNET-Pi/birdnet/bin/python /home/sparrow/BirdNET-Pi/scripts/utils/power_on.py', external_file_path] + arguments
             subprocess.run(command, check=True)
 
             notify(notify_body, notify_title, image_url)
@@ -186,7 +186,7 @@ def sendAppriseNotifications(species, confidence, confidencepct, path,
 
                     arguments = [sciName, comName, confidence, latitude, longitude, cutoff, sens, overlap]
                     external_file_path = '/home/sparrow/BirdNET-Pi/scripts/utils/send.py'
-                    command = ['~/BirdNET-Pi/birdnet/bin/python /home/sparrow/BirdNET-Pi/scripts/utils/power_on.py', external_file_path] + arguments
+                    command = ['/home/sparrow/BirdNET-Pi/birdnet/bin/python /home/sparrow/BirdNET-Pi/scripts/utils/power_on.py', external_file_path] + arguments
                     subprocess.run(command, check=True)
 
                     notify(notify_body, notify_title, image_url)
@@ -242,7 +242,7 @@ def sendAppriseNotifications(species, confidence, confidencepct, path,
 
                     arguments = [sciName, comName, confidence, latitude, longitude, cutoff, sens, overlap]
                     external_file_path = '/home/sparrow/BirdNET-Pi/scripts/utils/send.py'
-                    command = ['~/BirdNET-Pi/birdnet/bin/python /home/sparrow/BirdNET-Pi/scripts/utils/power_on.py', external_file_path] + arguments
+                    command = ['/home/sparrow/BirdNET-Pi/birdnet/bin/python /home/sparrow/BirdNET-Pi/scripts/utils/power_on.py', external_file_path] + arguments
                     subprocess.run(command, check=True)
 
                     notify(notify_body, notify_title, image_url)
