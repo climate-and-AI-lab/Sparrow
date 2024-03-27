@@ -32,7 +32,7 @@ commands = [
     # Check if the module is responsive, expected value OK
     PhoneCmd("AT", sleep=3),
     # Connect to network using sim 
-    PhoneCmd("AT+CPIN={sim_pin}", sleep=3),
+    PhoneCmd(f"AT+CPIN={sim_pin}", sleep=3),
     # close or turn off network connection in case it was left open, expected value OK
     PhoneCmd("AT+CIPSHUT", sleep=3),
     #  close GPRS context bearer in case it was left open, expected value OK
