@@ -32,7 +32,7 @@ install_birdnet() {
 
   # Define the lines to be added to rc.local
   lines_to_add=(
-    "/home/sparrow/BirdNET-Pi/birdnet/bin/python /home/sparrow/BirdNET-Pi/scripts/utils/power_on.py
+    "/home/sparrow/BirdNET-Pi/birdnet/bin/python /home/sparrow/BirdNET-Pi/scripts/utils/power_on.py"
     "/home/sparrow/BirdNET-Pi/birdnet/bin/python /home/sparrow/BirdNET-Pi/scripts/utils/open.py"
   )
 
