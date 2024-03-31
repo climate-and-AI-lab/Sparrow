@@ -133,10 +133,10 @@ def sendAppriseNotifications(species, confidence, confidencepct, path,
            
             arguments = [sciName, comName, confidence, latitude, longitude, cutoff, sens, overlap]
             external_file_path = '/home/sparrow/BirdNET-Pi/scripts/utils/send.py'
-            command = ['/home/sparrow/BirdNET-Pi/birdnet/bin/python /home/sparrow/BirdNET-Pi/scripts/utils/send.py', external_file_path] + arguments
+            command = ['/home/sparrow/BirdNET-Pi/birdnet/bin/python', external_file_path] + arguments
             subprocess.run(command, check=True)
 
-            notify(notify_body, notify_title, image_url)
+            # notify(notify_body, notify_title, image_url)
             species_last_notified[comName] = int(timeim.time())
 
         APPRISE_NOTIFICATION_NEW_SPECIES_DAILY_COUNT_LIMIT = 1  # Notifies the first N per day.
@@ -186,10 +186,10 @@ def sendAppriseNotifications(species, confidence, confidencepct, path,
 
                     arguments = [sciName, comName, confidence, latitude, longitude, cutoff, sens, overlap]
                     external_file_path = '/home/sparrow/BirdNET-Pi/scripts/utils/send.py'
-                    command = ['/home/sparrow/BirdNET-Pi/birdnet/bin/python /home/sparrow/BirdNET-Pi/scripts/utils/send.py', external_file_path] + arguments
+                    command = ['/home/sparrow/BirdNET-Pi/birdnet/bin/python', external_file_path] + arguments
                     subprocess.run(command, check=True)
 
-                    notify(notify_body, notify_title, image_url)
+                    # notify(notify_body, notify_title, image_url)
                     species_last_notified[comName] = int(timeim.time())
                 con.close()
             except sqlite3.Error as e:
@@ -242,10 +242,10 @@ def sendAppriseNotifications(species, confidence, confidencepct, path,
 
                     arguments = [sciName, comName, confidence, latitude, longitude, cutoff, sens, overlap]
                     external_file_path = '/home/sparrow/BirdNET-Pi/scripts/utils/send.py'
-                    command = ['/home/sparrow/BirdNET-Pi/birdnet/bin/python /home/sparrow/BirdNET-Pi/scripts/utils/send.py', external_file_path] + arguments
+                    command = ['/home/sparrow/BirdNET-Pi/birdnet/bin/python', external_file_path] + arguments
                     subprocess.run(command, check=True)
 
-                    notify(notify_body, notify_title, image_url)
+                    # notify(notify_body, notify_title, image_url)
                     species_last_notified[comName] = int(timeim.time())
                 con.close()
             except sqlite3.Error:
