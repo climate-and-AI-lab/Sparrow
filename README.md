@@ -44,7 +44,7 @@ Follow these steps to install SPARROW:
    - Power on the Raspberry Pi and allow it a few minutes to boot up.
 
 3. **Connect to Raspberry Pi**:
-   - Open the terminal on a Windows laptop by searching and opening "Command Prompt".
+   - Open the terminal on a Windows laptop by searching and opening "Terminal".
    - Connect to the Raspberry Pi using SSH: `ssh sparrow@sparrow.local` or your configured hostname. You can paste code on the terminal using right-click on your laptop/computer.
 
 4. **Modify System Settings**:
