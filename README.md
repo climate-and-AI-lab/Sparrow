@@ -83,3 +83,13 @@ Follow these steps to install SPARROW:
    - Use the arrow keys to go to sim_pin and edit the replace the string with your sim activation pin.
    - Press Ctrl+X. It will ask to confirm changes. Press Y and then Enter.
    - Reboot the device for changes to take effect.
+
+7. **Device Setup**:
+   - Charge the lead-acid battery using the charger
+   - Connect wires from the lead-acid battery to the buck converter at the correct poles
+   - Connect the micro-usb cable from the buck converter to the Raspberry Pi
+   - House the equipment in the housing
+   - Deploy at the desired location!
+  
+8. **Observing results**:
+   - You can see the live incoming classifications on the Thingspeak platform at the link: https://thingspeak.com/channels/2367077/
