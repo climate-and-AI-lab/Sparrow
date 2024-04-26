@@ -50,7 +50,6 @@ Follow these steps to install SPARROW:
 4. **Modify System Settings**:
    - Paste the following code into the terminal and press Enter.
      ```
-     bash
      sudo sed -i 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=2048/g' /etc/dphys-swapfile &&
      sudo sed -i 's/#CONF_MAXSWAP=2048/CONF_MAXSWAP=4096/g' /etc/dphys-swapfile &&
      sudo sed -i '/^exit 0/i sudo iw wlan0 set power_save off' /etc/rc.local
